@@ -1,0 +1,17 @@
+{
+  "name": "stickshift-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^9.0.8",
+    "electron-prebuilt": "^0.24.0",
+    "mysql": "^2.6.2",
+    "stickshift": "^1.5.0"
+  }
+}
