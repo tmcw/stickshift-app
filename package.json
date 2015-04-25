@@ -13,6 +13,6 @@
     "electron-prebuilt": "^0.24.0",
     "mysql": "^2.6.2",
     "pg": "^4.3.0",
-    "stickshift": "^1.5.0"
+    "stickshift": "1.5.1"
   }
 }
