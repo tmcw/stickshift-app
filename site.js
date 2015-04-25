@@ -5,18 +5,55 @@ var database = {
     pg: require('./databases/pg.js')
 };
 
-/*database.mysql({
-    host: 'localhost',
-    user: 'root',
-    database: 'examples'
-} */
-
-database.pg('postgres://tmcw@localhost/examples', function(err, client) {
-    if (err) {
-        return console.error(err);
+function showForm(form) {
+    var forms = document.body.querySelectorAll('form');
+    for (var i = 0; i < forms.length; i++) {
+        forms[i].style.display = (forms[i].id === form) ? 'block' : 'none';
     }
-    Stickshift(document.getElementById('page'), {
-      mapboxToken: 'pk.eyJ1IjoidG1jdyIsImEiOiJIZmRUQjRBIn0.lRARalfaGHnPdRcc-7QZYQ',
-      endpoint: client.query
+}
+
+showForm('mysql-form');
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+function closeConfigPage() {
+    $('setup').parentNode.removeChild($('setup'));
+}
+
+function showError(err) {
+    $('error').style.display = 'block';
+    $('error').innerHTML = err.toString();
+}
+
+$('mysql-connect').onclick = function(e) {
+    e.preventDefault();
+    var config = {
+        user: $('mysql-username').value,
+        password: $('mysql-password').value,
+        database: $('mysql-database').value,
+        host: $('mysql-host').value
+    };
+    database.mysql(config, function(err, client) {
+        if (err) { return showError(err); }
+        closeConfigPage();
+        Stickshift(document.getElementById('page'), {
+          mapboxToken: 'pk.eyJ1IjoidG1jdyIsImEiOiJIZmRUQjRBIn0.lRARalfaGHnPdRcc-7QZYQ',
+          endpoint: client.query
+        });
     });
-});
+};
+
+$('pg-connect').onclick = function(e) {
+    e.preventDefault();
+    var config = $('pg-connectionstring').value;
+    database.pg(config, function(err, client) {
+        if (err) { return showError(err); }
+        closeConfigPage();
+        Stickshift(document.getElementById('page'), {
+          mapboxToken: 'pk.eyJ1IjoidG1jdyIsImEiOiJIZmRUQjRBIn0.lRARalfaGHnPdRcc-7QZYQ',
+          endpoint: client.query
+        });
+    });
+};

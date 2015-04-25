@@ -12,10 +12,44 @@
   </head>
   <body>
     <div id='page'></div>
+    <div id='setup' class='pad2 col12 clearfix'>
+      <div class='tabs col12 clearfix unlimiter space-bottom2'>
+        <a onclick='showForm("mysql-form")' class='col6 quiet active'>MySQL</a>
+        <a onclick='showForm("pg-form")' class='col6 quiet'>PostgreSQL</a>
+      </div>
+      <div style='display:none' class='pad2 fill-yellow' id='error'>
+      </div>
+      <form class='db-form' id='mysql-form'>
+        <fieldset>
+        <label>username</label>
+        <input class='col12 space-bottom1' type='text' id='mysql-username' placeholder='username' />
+        </fieldset>
+        <fieldset>
+        <label>password</label>
+        <input class='col12 space-bottom1' type='text' id='mysql-password' placeholder='password' />
+        </fieldset>
+        <fieldset>
+        <label>database</label>
+        <input class='col12 space-bottom1' type='text' id='mysql-database' placeholder='database' />
+        </fieldset>
+        <fieldset>
+        <label>host</label>
+        <input class='col12 space-bottom1' type='text' id='mysql-host' placeholder='host' />
+        </fieldset>
+        <button class='col12' id='mysql-connect'>Connect</button>
+      </form>
+      <form class='db-form' id='pg-form'>
+        <fieldset>
+        <label>connection string</label>
+        <input class='col12 space-bottom1' type='text' id='pg-connectionstring' placeholder='connection string' />
+        <div class='pad1 small quiet'>like postgres://username:password@localhost/database</div>
+        </fieldset>
+        <button class='col12' id='pg-connect'>Connect</button>
+      </form>
+    </div>
     <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.8/mapbox.js'></script>
     <script src='node_modules/stickshift/lib/d3.v3.min.js'></script>
     <script src='node_modules/stickshift/lib/vega.js'></script>
     <script src='site.js'></script>
   </body>
 </html>
-
