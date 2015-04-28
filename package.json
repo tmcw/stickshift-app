@@ -4,15 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron main.js"
+    "start": "electron index.js",
+    "build": "rm -rf Stickshift.app && electron-packager . Stickshift --prune"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserify": "^9.0.8",
-    "electron-prebuilt": "^0.24.0",
     "mysql": "^2.6.2",
     "pg": "^4.3.0",
     "stickshift": "1.5.1"
+  },
+  "devDependencies": {
+    "atom-shell": "^0.22.3-1",
+    "browserify": "^9.0.8",
+    "electron-prebuilt": "^0.24.0",
+    "electron-packager": "^3.1.0"
   }
 }

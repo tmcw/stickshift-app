@@ -5,14 +5,24 @@ var database = {
     pg: require('./databases/pg.js')
 };
 
-function showForm(form) {
+function showForm(id) {
+    var form = id + '-form', tab = id + '-tab';
     var forms = document.body.querySelectorAll('form');
-    for (var i = 0; i < forms.length; i++) {
+    var tabs = document.body.querySelectorAll('.tabs a');
+    var i;
+    for (i = 0; i < tabs.length; i++) {
+        if (tabs[i].id === tab) {
+            tabs[i].classList.add('active');
+        } else {
+            tabs[i].classList.remove('active');
+        }
+    }
+    for (i = 0; i < forms.length; i++) {
         forms[i].style.display = (forms[i].id === form) ? 'block' : 'none';
     }
 }
 
-showForm('mysql-form');
+showForm('mysql');
 
 function $(id) {
     return document.getElementById(id);
