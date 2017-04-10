@@ -1,5 +1,7 @@
 # Stickshift App
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/tmcw/stickshift-app.svg)](https://greenkeeper.io/)
+
 Stickshift App is [Stickshift](https://github.com/mapbox/stickshift) as a
 desktop application.
 
