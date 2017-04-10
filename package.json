@@ -11,13 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "mysql": "^2.6.2",
-    "pg": "^4.3.0",
+    "pg": "^6.1.5",
     "stickshift": "1.5.1"
   },
   "devDependencies": {
-    "atom-shell": "^0.22.3-1",
-    "browserify": "^9.0.8",
-    "electron-prebuilt": "^0.24.0",
-    "electron-packager": "^3.1.0"
+    "atom-shell": "^1.2.1",
+    "browserify": "^14.3.0",
+    "electron-prebuilt": "^1.4.13",
+    "electron-packager": "^8.6.0"
   }
 }
